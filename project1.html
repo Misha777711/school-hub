@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Galaxy</title>
+  <!-- Стили проекта: общий дизайн, эффекты, небо и облака -->
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/star.css"/>
+  <link rel="stylesheet" href="css/moon.css"/>
+  <link rel="stylesheet" href="css/sun.css"/>
+  <link rel="stylesheet" href="css/movetopic.css"/>
+  <link rel="stylesheet" href="css/cloud.css"/>
+  <!-- <link rel="stylesheet" href="css/animate-fone.css"> -->
+</head>
+<body>
+  <!-- Луна состоит из нескольких слоёв и кратеров -->
+  <div class="moon">
+    <div class="moon-circle-2"></div>
+    <div class="moon-circle-0"></div>
+    <div class="moon-circle-1">
+      <div class="moon-circle-3"></div>
+      <div class="moon-circle-4"></div>
+      <div class="moon-circle-5"></div>
+      <div class="moon-circle-6"></div>
+      <div class="moon-circle-7"></div>
+      <div class="moon-circle-8"></div>
+      <div class="moon-circle-9"></div>
+      <div class="moon-circle-10"></div>
+      <div class="moon-circle-11"></div>
+    </div>
+  </div>
+
+  <!-- Солнце в правом верхнем углу -->
+  <div class="sun">
+    <div class="sun-circle"></div>
+  </div>
+
+  <!-- Хедер с заголовком и переключателем темы -->
+  <header class="site-header">
+    <h1>CSS Galaxy</h1>
+    <button class="theme-toggle" id="theme-toggle">Светлая тема</button>
+  </header>
+
+  <!-- Основная область для падающих звезд -->
+  <main class="galaxy-container">
+    <!-- Звёзды будут добавляться скриптом  -->
+    <div id="stars"></div>
+  </main>
+
+  <!-- Облака на фоне -->
+  <div class="cloud">
+    <div class="cloud-1"></div>
+    <div class="cloud-2"></div>
+    <div class="cloud-3"></div>
+    <div class="cloud-4"></div>
+    <div class="cloud-5"></div>
+    <div class="cloud-6"></div>
+  </div>
+  <div class="cloud11">
+    <div class="cloud-1"></div>
+    <div class="cloud-2"></div>
+    <div class="cloud-3"></div>
+    <div class="cloud-4"></div>
+    <div class="cloud-5"></div>
+    <div class="cloud-6"></div>
+  </div>
+  <div class="cloud12">
+    <div class="cloud-1"></div>
+    <div class="cloud-2"></div>
+    <div class="cloud-3"></div>
+    <div class="cloud-4"></div>
+    <div class="cloud-5"></div>
+    <div class="cloud-6"></div>
+  </div>
+  <!-- <div class="cloud13">
+    <div class="cloud-1"></div>
+    <div class="cloud-2"></div>
+    <div class="cloud-3"></div>
+    <div class="cloud-4"></div>
+    <div class="cloud-5"></div>
+    <div class="cloud-6"></div>
+  </div> -->
+
+</div>
+<script src="js/animaited.js"></script>
+<script src="js/star.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
